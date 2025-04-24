@@ -36,7 +36,7 @@ function ModalContent() : Readonly<ReactNode> {
                 </label>
             </div>
             <div className="bg-background flex items-center justify-between py-8 mt-2 gap-2 sm:gap-5 px-2">
-                <div className="w-full bg-transparent rounded-sm border border-neutral-200 focus:outline-none text-foreground">
+                <div className="w-full bg-transparent rounded-sm border border-neutral-200 focus:outline-none text-text-secondary">
                     <input
                         type="text"
                         onChange={handleInputChange}

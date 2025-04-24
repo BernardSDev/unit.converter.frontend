@@ -9,24 +9,24 @@ function Main() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="bg-background">
+        <div className="bg-background pb-4">
             <div className="container">
-                <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-10 md:gap-30 mt-5 min-h-[75svh] max-h-screen]">
+                <div className="grid grid-cols-1">
                     <Image
-                        src="/bg.jpg"
+                        src="/hero.svg"
                         alt="mass unit"
                         width={1000}
                         height={1000}
-                        className="w-[500px] object-fit rounded-2xl"
+                        className="w-[400px] object-fit rounded-2xl justify-self-center mb-10 mt-4"
                     />
-                    <div>
-                        <h1 className="text-2xl mb-6">UnitConvert</h1>
-                        <p className="mb-10 tracking-wide leading-relaxed text-foreground">UnitConvert is an online unit converter.It allows you to convert mass, volume and temperature. To get started, click the button below and select unit to convert.</p>
+                    <div className="text-center">
+                        <h1 className="text-7xl mb-4">UnitConvert</h1>
+                        <p className="mb-10 sm:w-1/2 mx-auto tracking-wide leading-loose text-foreground">UnitConvert is an online unit converter.It allows you to convert mass, volume and temperature. To get started, click the button below and select unit to convert.</p>
                         <button
                             onClick={() => setIsOpen(true)}
-                            className="bg-blue-600 text-white px-8 py-2 rounded cursor-pointer"
+                            className="bg-danger text-white px-8 py-2 rounded cursor-pointer justify-self-center"
                         >
-                            Convert
+                            Convert now
                         </button>
                     </div>
 
