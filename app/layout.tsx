@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Unit Converter | App to convert units",
+  title: "UnitConvert | App to convert units",
   description: "Conversion of units made easier",
 };
 
