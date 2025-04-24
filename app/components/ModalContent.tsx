@@ -20,7 +20,7 @@ function ModalContent() : Readonly<ReactNode> {
 
     return (
         <div className="rounded-2xl  bg-background p-2 sm:border sm:border-gray-300 border-transparent">
-            <div className="p-4">
+            <div className="px-2">
                 <label className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-10">
                     Select a unit:
                     <select
