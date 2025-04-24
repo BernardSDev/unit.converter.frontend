@@ -20,7 +20,7 @@ function Main() {
                         className="w-[400px] object-fit rounded-2xl justify-self-center mb-10 mt-4"
                     />
                     <div className="text-center">
-                        <h1 className="text-6xl md:text-7xl mb-4">UnitConvert</h1>
+                        <h1 className="text-6xl md:text-7xl mb-5">UnitConvert</h1>
                         <p className="mb-10 sm:w-1/2 mx-auto tracking-wide leading-loose text-foreground">UnitConvert is an online unit converter.It allows you to convert mass, volume and temperature. To get started, click the button below and select unit to convert.</p>
                         <button
                             onClick={() => setIsOpen(true)}
