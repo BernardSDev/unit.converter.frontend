@@ -8,7 +8,7 @@ function Header() : JSX.Element {
                 <h1 className="text-xl tracking-tighter font-bold">Unit<span className="text-red-600">Convert.</span></h1>
                 <div className="flex items-center gap-10">
                     <ThemeToggle />
-                    <button className="bg-blue-600 text-white px-4 py-2 rounded cursor-pointer">
+                    <button className="bg-blue-600 text-white px-4 py-2 rounded cursor-pointer hidden sm:block">
                         Convert now
                     </button>
                 </div>
