@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Modal from "@/app/components/Modal";
 import {useState} from "react";
+import ModalContent from "@/app/components/ModalContent";
 
 function Main() {
     const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +11,7 @@ function Main() {
     return (
         <div className="bg-background">
             <div className="container">
-                <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-10 mt-5 min-h-[75svh] max-h-screen]">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-10 md:gap-30 mt-5 min-h-[75svh] max-h-screen]">
                     <Image
                         src="/bg.jpg"
                         alt="mass unit"
@@ -30,7 +31,7 @@ function Main() {
                     </div>
 
                     <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-                        content here
+                        <ModalContent />
                     </Modal>
                 </div>
             </div>
