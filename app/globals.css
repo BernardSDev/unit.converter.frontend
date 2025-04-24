@@ -6,6 +6,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-secondary: var(--secondary);
+  --color-danger: var(--danger);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -14,6 +15,7 @@
 :root {
   --background: #ffffff;
   --secondary: #F8FAFA;
+  --danger: #C0090F;
   --foreground: #828282;
   --font-geist-sans: "Geist Sans", system-ui, sans-serif;
   --font-geist-mono: "Geist Mono", monospace;
