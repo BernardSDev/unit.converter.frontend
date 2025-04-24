@@ -19,7 +19,7 @@ function ModalContent() : Readonly<ReactNode> {
     const lastUnit = str[str.length - 1];
 
     return (
-        <div className="rounded-2xl  bg-background p-2 sm:border sm:border-gray-300 border-transparent">
+        <div className="rounded-2xl  bg-background p-2 sm:border sm:border-border border-transparent sm:px-8 sm:py-10">
             <div className="px-2">
                 <label className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-10">
                     Select a unit:

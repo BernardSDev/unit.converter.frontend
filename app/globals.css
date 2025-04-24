@@ -8,6 +8,7 @@
   --color-secondary: var(--secondary);
   --color-danger: var(--danger);
   --color-foreground: var(--foreground);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -17,6 +18,7 @@
   --secondary: #F8FAFA;
   --danger: #C0090F;
   --foreground: #828282;
+  --border: #505050;
   --font-geist-sans: "Geist Sans", system-ui, sans-serif;
   --font-geist-mono: "Geist Mono", monospace;
 }
