@@ -19,9 +19,9 @@ function ModalContent() : Readonly<ReactNode> {
     const lastUnit = str[str.length - 1];
 
     return (
-        <div className="border border-neutral-500 w-1/2 px-10 py-15 rounded-2xl">
-            <div className="bg-green-300xx p-4">
-                <label className="bg-red-300xx p-4 flex items-center gap-10">
+        <div className="rounded-2xl  bg-background p-2 sm:border sm:border-gray-300 border-transparent">
+            <div className="p-4">
+                <label className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-10">
                     Select a unit:
                     <select
                         value={selectedUnit}
@@ -35,7 +35,7 @@ function ModalContent() : Readonly<ReactNode> {
                     </select>
                 </label>
             </div>
-            <div className="bg-background flex items-center justify-between py-8 gap-5">
+            <div className="bg-background flex items-center justify-between py-8 mt-2 gap-2 sm:gap-5 px-2">
                 <div className="w-full bg-transparent rounded-sm border border-neutral-200 focus:outline-none text-foreground">
                     <input
                         type="text"

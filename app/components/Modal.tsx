@@ -29,10 +29,10 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
 
     return ReactDOM.createPortal(
         <div className="fixed inset-0 bg-secondary/85 flex items-center justify-center z-50">
-            <div className="fixed rounded-2xl h-[90svh] w-[90vw] grid place-items-center box-border min-w-fit overflow-hidden bg-background shadow-2xl">
+            <div className="fixed h-[95svh] w-[95vw] grid place-content-center rounded-2xl overflow-hidden container bg-background shadow-2xl">
                 <button
                     onClick={onClose}
-                    className="absolute text-red-500 top-4 right-4 text-4xl font-bold cursor-pointer"
+                    className="absolute text-red-500 top-3 right-5 text-4xl font-bold cursor-pointer"
                 >
                     &times;
                 </button>
