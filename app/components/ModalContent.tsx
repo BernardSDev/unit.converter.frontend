@@ -34,48 +34,36 @@ function ModalContent() : Readonly<ReactNode> {
             case 'grams':
                 try {
                     const response = await ConvertGramsToKilograms(input);
-
                     if (response && typeof response?.result === 'number') setResult(Number(response.result.toPrecision(2)));
-                    setResult(Number((input / 1000).toPrecision(2)));
                 } catch (err) {
                     console.error("Backend conversion failed, falling back:", err);
-                    setResult(Number((input / 1000).toPrecision(2)));
                 }
                 break;
 
             case 'kilometers':
                 try {
                     const response = await ConvertKilometersToMiles(input);
-
                     if (response && typeof response?.result === 'number') setResult(Number(response.result.toPrecision(2)));
-                    setResult(Number((input / 1.609344).toPrecision(2)));
                 } catch (err) {
                     console.error("Backend conversion failed, falling back:", err);
-                    setResult(Number((input / 1.609344).toPrecision(2)));
                 }
                 break;
 
             case 'celsius':
                 try {
                     const response = await ConvertCelsiusToFahrenheit(input);
-
                     if (response && typeof response?.result === 'number') setResult(Number(response.result.toPrecision(2)));
-                    else setResult(Number(((input * 9/5) + 32).toPrecision(2)));
                 } catch (err) {
                     console.error("Backend conversion failed, falling back:", err);
-                    setResult(Number(((input * 9/5) + 32).toPrecision(2)));
                 }
                 break;
 
             case 'litres':
                 try {
                     const response = await ConvertLitersToGallons(input);
-
                     if (response && typeof response?.result === 'number') setResult(Number(response.result.toPrecision(2)));
-                    else setResult(Number((input / 0.264172).toPrecision(2)));
                 } catch (e) {
                     console.error("Backend conversion failed, falling back:", e);
-                    setResult(Number((input / 0.264172).toPrecision(2)));
                 }
                 break;
 

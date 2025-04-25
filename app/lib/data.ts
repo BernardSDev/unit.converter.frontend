@@ -25,6 +25,7 @@ export const ConvertGramsToKilograms = async (grams: number) : Promise<SendUnitC
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'credentials': 'include'
             },
             body: JSON.stringify(grams),
         });
@@ -41,6 +42,7 @@ export const ConvertKilometersToMiles = async (kilometers: number) : Promise<Sen
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'credentials': 'include'
             },
             body: JSON.stringify(kilometers),
         });
@@ -57,6 +59,7 @@ export const ConvertCelsiusToFahrenheit = async (celsius: number) : Promise<Send
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'credentials': 'include'
             },
             body: JSON.stringify(celsius),
         });
