@@ -1,11 +1,18 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import {ReactNode} from "react";
+import {ReactNode, useEffect, useState} from "react";
 import {Moon, SunMoon} from 'lucide-react';
 
 function ThemeToggle(): Readonly<ReactNode> {
 const {theme, setTheme} = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) return null;
 
     return(
         <>
