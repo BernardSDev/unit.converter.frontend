@@ -36,10 +36,10 @@ function ModalContent() : Readonly<ReactNode> {
                     const response = await ConvertGramsToKilograms(input);
 
                     if (response && typeof response?.result === 'number') setResult(Number(response.result.toPrecision(2)));
-                    else setResult(input / 1000);
+                    setResult(Number((input / 1000).toPrecision(2)));
                 } catch (err) {
                     console.error("Backend conversion failed, falling back:", err);
-                    setResult(input / 1000);
+                    setResult(Number((input / 1000).toPrecision(2)));
                 }
                 break;
 
@@ -48,10 +48,10 @@ function ModalContent() : Readonly<ReactNode> {
                     const response = await ConvertKilometersToMiles(input);
 
                     if (response && typeof response?.result === 'number') setResult(Number(response.result.toPrecision(2)));
-                    else setResult(input / 1.609344);
+                    setResult(Number((input / 1.609344).toPrecision(2)));
                 } catch (err) {
                     console.error("Backend conversion failed, falling back:", err);
-                    setResult(input / 1.609344);
+                    setResult(Number((input / 1.609344).toPrecision(2)));
                 }
                 break;
 
@@ -60,10 +60,10 @@ function ModalContent() : Readonly<ReactNode> {
                     const response = await ConvertCelsiusToFahrenheit(input);
 
                     if (response && typeof response?.result === 'number') setResult(Number(response.result.toPrecision(2)));
-                    else setResult((input * 9/5) + 32);
+                    else setResult(Number(((input * 9/5) + 32).toPrecision(2)));
                 } catch (err) {
                     console.error("Backend conversion failed, falling back:", err);
-                    setResult((input * 9/5) + 32);
+                    setResult(Number(((input * 9/5) + 32).toPrecision(2)));
                 }
                 break;
 
@@ -72,10 +72,10 @@ function ModalContent() : Readonly<ReactNode> {
                     const response = await ConvertLitersToGallons(input);
 
                     if (response && typeof response?.result === 'number') setResult(Number(response.result.toPrecision(2)));
-                    else setResult(input / 0.264172);
+                    else setResult(Number((input / 0.264172).toPrecision(2)));
                 } catch (e) {
                     console.error("Backend conversion failed, falling back:", e);
-                    setResult(input / 0.264172);
+                    setResult(Number((input / 0.264172).toPrecision(2)));
                 }
                 break;
 
