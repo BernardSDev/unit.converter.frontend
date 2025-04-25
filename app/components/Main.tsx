@@ -24,6 +24,7 @@ function Main() {
                         <h1 className="text-6xl md:text-7xl mb-5">UnitConvert</h1>
                         <p className="mb-10 sm:w-1/2 mx-auto tracking-wide leading-loose text-foreground">UnitConvert is an online unit converter.It allows you to convert mass, volume and temperature. To get started, click the button below and select unit to convert.</p>
                         <button
+                            data-test="convert-button"
                             onClick={() => setIsOpen(true)}
                             className="bg-danger text-white px-8 py-2 rounded cursor-pointer justify-self-center"
                         >
