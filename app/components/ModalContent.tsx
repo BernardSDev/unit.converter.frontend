@@ -4,26 +4,35 @@ import {ReactNode, useState} from "react";
 
 function ModalContent() : Readonly<ReactNode> {
     const [selectedConversion, setSelectedConversion] = useState('grams-to-kilograms');
-    const [unit, setUnit] = useState<number>(0);
+    const [value, setValue] = useState<number>(0);
+    const [result, setResult] = useState<number>(0);
+
+    const conversion = selectedConversion.split("-");
+    const unit = conversion[0];
+    const lastUnit = conversion[conversion.length - 1];
 
     const handleConversionChange = (e?: React.ChangeEvent<HTMLSelectElement>) => {
-        if (e) setSelectedConversion(e.target.value);
-
-        const str = selectedConversion.split("-");
-        const firstUnit = str[0];
-        const lastUnit = str[str.length - 1];
-
-        return {
-            firstUnit,
-            lastUnit
+        if (e) {
+            setSelectedConversion(e.target.value);
+            setValue(0);
+            setResult(0);
         }
+
     }
 
     const handleUnitInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setUnit(Number(e.target.value));
-    };
+        setValue(Number(e.target.value));
+        console.log(unit);
 
-    const {firstUnit, lastUnit} = handleConversionChange();
+        switch (unit) {
+            case 'grams':
+                setResult(Number(e.target.value) / 1000);
+                break;
+
+            default:
+                setResult(0);
+        }
+    };
 
     return (
         <div className="rounded-2xl  bg-background p-2 sm:border sm:border-border border-transparent sm:px-8 sm:py-10">
@@ -47,16 +56,16 @@ function ModalContent() : Readonly<ReactNode> {
                     <input
                         type="text"
                         onChange={handleUnitInputChange}
-                        value={unit}
+                        value={value}
                         className="bg-transparent w-full focus:outline-none pl-4 py-2"
                     />
-                    <p className="bg-secondary border-t border-t-neutral-200 pl-4 py-1">{firstUnit}</p>
+                    <p className="bg-secondary border-t border-t-neutral-200 pl-4 py-1">{unit}</p>
                 </div>
                 <div>=</div>
                 <div className="w-full bg-transparent rounded-sm border border-neutral-200 focus:outline-none text-foreground">
                     <input
                         type="text"
-                        value={0.001 * Number(unit)}
+                        value={result}
                         className="bg-transparent w-full focus:outline-none pl-4 py-2"
                         disabled={true}
                     />
