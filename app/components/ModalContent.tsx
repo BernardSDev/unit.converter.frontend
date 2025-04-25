@@ -3,20 +3,26 @@
 import {ReactNode, useState} from "react";
 
 function ModalContent() : Readonly<ReactNode> {
-    const [selectedUnit, setSelectedUnit] = useState('grams-to-kilograms');
-    const [value, setValue] = useState<string>("0");
+    const [selectedConversion, setSelectedConversion] = useState('grams-to-kilograms');
+    const [unit, setUnit] = useState<number>(0);
 
-    const handleUnitChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedUnit(e.target.value);
+    const handleConversionChange = (e?: React.ChangeEvent<HTMLSelectElement>) => {
+        if (e) setSelectedConversion(e.target.value);
+
+        const str = selectedConversion.split("-");
+        const firstUnit = str[0];
+        const lastUnit = str[str.length - 1];
+
+        return {
+            firstUnit,
+            lastUnit
+        }
     }
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setValue(e.target.value);
+    const handleUnitInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setUnit(Number(e.target.value));
     };
 
-    const str = (selectedUnit.split("-"));
-    const firstUnit = str[0];
-    const lastUnit = str[str.length - 1];
 
     return (
         <div className="rounded-2xl  bg-background p-2 sm:border sm:border-border border-transparent sm:px-8 sm:py-10">
@@ -24,8 +30,8 @@ function ModalContent() : Readonly<ReactNode> {
                 <label className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-10">
                     Select a unit:
                     <select
-                        value={selectedUnit}
-                        onChange={handleUnitChange}
+                        value={selectedConversion}
+                        onChange={handleConversionChange}
                         className={"bg-secondary border-none text-lg text-foreground p-3 rounded-md"}
                     >
                         <option value="grams-to-kilograms">Grams to Kilograms</option>
@@ -39,21 +45,21 @@ function ModalContent() : Readonly<ReactNode> {
                 <div className="w-full bg-transparent rounded-sm border border-neutral-200 focus:outline-none text-text-secondary">
                     <input
                         type="text"
-                        onChange={handleInputChange}
-                        value={value}
+                        onChange={handleUnitInputChange}
+                        value={unit}
                         className="bg-transparent w-full focus:outline-none pl-4 py-2"
                     />
-                    <p className="bg-secondary border-t border-t-neutral-200 pl-4 py-1">{firstUnit}</p>
+                    <p className="bg-secondary border-t border-t-neutral-200 pl-4 py-1">{handleConversionChange().firstUnit}</p>
                 </div>
                 <div>=</div>
                 <div className="w-full bg-transparent rounded-sm border border-neutral-200 focus:outline-none text-foreground">
                     <input
                         type="text"
-                        value={0.001 * Number(value)}
+                        value={0.001 * Number(unit)}
                         className="bg-transparent w-full focus:outline-none pl-4 py-2"
                         disabled={true}
                     />
-                    <p className="bg-secondary border-t border-t-neutral-200 pl-4 py-1">{lastUnit}</p>
+                    <p className="bg-secondary border-t border-t-neutral-200 pl-4 py-1">{handleConversionChange().lastUnit}</p>
                 </div>
             </div>
         </div>
