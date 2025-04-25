@@ -36,10 +36,10 @@ function ModalContent() : Readonly<ReactNode> {
                     const response = await ConvertGramsToKilograms(input);
 
                     if (response && typeof response?.result === 'number') setResult(Number(response.result.toPrecision(2)));
-                    else setResult(value / 1000);
+                    else setResult(input / 1000);
                 } catch (err) {
                     console.error("Backend conversion failed, falling back:", err);
-                    setResult(value / 1000);
+                    setResult(input / 1000);
                 }
                 break;
 
@@ -48,10 +48,10 @@ function ModalContent() : Readonly<ReactNode> {
                     const response = await ConvertKilometersToMiles(input);
 
                     if (response && typeof response?.result === 'number') setResult(Number(response.result.toPrecision(2)));
-                    else setResult(value / 1.609344);
+                    else setResult(input / 1.609344);
                 } catch (err) {
                     console.error("Backend conversion failed, falling back:", err);
-                    setResult(value / 1.609344);
+                    setResult(input / 1.609344);
                 }
                 break;
 
@@ -60,10 +60,10 @@ function ModalContent() : Readonly<ReactNode> {
                     const response = await ConvertCelsiusToFahrenheit(input);
 
                     if (response && typeof response?.result === 'number') setResult(Number(response.result.toPrecision(2)));
-                    else setResult((value * 9/5) + 32);
+                    else setResult((input * 9/5) + 32);
                 } catch (err) {
                     console.error("Backend conversion failed, falling back:", err);
-                    setResult((value * 9/5) + 32);
+                    setResult((input * 9/5) + 32);
                 }
                 break;
 
@@ -72,10 +72,10 @@ function ModalContent() : Readonly<ReactNode> {
                     const response = await ConvertLitersToGallons(input);
 
                     if (response && typeof response?.result === 'number') setResult(Number(response.result.toPrecision(2)));
-                    else setResult(value / 0.264172);
+                    else setResult(input / 0.264172);
                 } catch (e) {
                     console.error("Backend conversion failed, falling back:", e);
-                    setResult(value / 0.264172);
+                    setResult(input / 0.264172);
                 }
                 break;
 
