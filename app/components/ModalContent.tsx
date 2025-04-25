@@ -23,6 +23,7 @@ function ModalContent() : Readonly<ReactNode> {
         setUnit(Number(e.target.value));
     };
 
+    const {firstUnit, lastUnit} = handleConversionChange();
 
     return (
         <div className="rounded-2xl  bg-background p-2 sm:border sm:border-border border-transparent sm:px-8 sm:py-10">
@@ -49,7 +50,7 @@ function ModalContent() : Readonly<ReactNode> {
                         value={unit}
                         className="bg-transparent w-full focus:outline-none pl-4 py-2"
                     />
-                    <p className="bg-secondary border-t border-t-neutral-200 pl-4 py-1">{handleConversionChange().firstUnit}</p>
+                    <p className="bg-secondary border-t border-t-neutral-200 pl-4 py-1">{firstUnit}</p>
                 </div>
                 <div>=</div>
                 <div className="w-full bg-transparent rounded-sm border border-neutral-200 focus:outline-none text-foreground">
@@ -59,7 +60,7 @@ function ModalContent() : Readonly<ReactNode> {
                         className="bg-transparent w-full focus:outline-none pl-4 py-2"
                         disabled={true}
                     />
-                    <p className="bg-secondary border-t border-t-neutral-200 pl-4 py-1">{handleConversionChange().lastUnit}</p>
+                    <p className="bg-secondary border-t border-t-neutral-200 pl-4 py-1">{lastUnit}</p>
                 </div>
             </div>
         </div>

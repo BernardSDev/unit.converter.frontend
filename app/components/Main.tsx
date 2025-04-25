@@ -17,6 +17,7 @@ function Main() {
                         alt="mass unit"
                         width={1000}
                         height={1000}
+                        priority
                         className="w-[400px] object-fit rounded-2xl justify-self-center mb-10 mt-4"
                     />
                     <div className="text-center">
