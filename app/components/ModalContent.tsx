@@ -1,12 +1,7 @@
 'use client';
 
 import {ReactNode, useState} from "react";
-import {
-    ConvertCelsiusToFahrenheit,
-    ConvertGramsToKilograms,
-    ConvertKilometersToMiles,
-    ConvertLitersToGallons
-} from "@/app/lib/data";
+import {performConversion} from "@/app/lib/conversionActions";
 
 function ModalContent() : Readonly<ReactNode> {
     const [selectedConversion, setSelectedConversion] = useState('grams-to-kilograms');
@@ -23,52 +18,19 @@ function ModalContent() : Readonly<ReactNode> {
             setValue(0);
             setResult(0);
         }
-
     }
 
-    const handleUnitInputChange = async  (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleUnitInputChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const input = Number(e.target.value);
         setValue(input);
 
-        switch (unit) {
-            case 'grams':
-                try {
-                    const response = await ConvertGramsToKilograms(input);
-                    if (response && typeof response?.result === 'number') setResult(Number(response.result.toPrecision(2)));
-                } catch (err) {
-                    console.error("Backend conversion failed, falling back:", err);
-                }
-                break;
-
-            case 'kilometers':
-                try {
-                    const response = await ConvertKilometersToMiles(input);
-                    if (response && typeof response?.result === 'number') setResult(Number(response.result.toPrecision(2)));
-                } catch (err) {
-                    console.error("Backend conversion failed, falling back:", err);
-                }
-                break;
-
-            case 'celsius':
-                try {
-                    const response = await ConvertCelsiusToFahrenheit(input);
-                    if (response && typeof response?.result === 'number') setResult(Number(response.result.toPrecision(2)));
-                } catch (err) {
-                    console.error("Backend conversion failed, falling back:", err);
-                }
-                break;
-
-            case 'litres':
-                try {
-                    const response = await ConvertLitersToGallons(input);
-                    if (response && typeof response?.result === 'number') setResult(Number(response.result.toPrecision(2)));
-                } catch (e) {
-                    console.error("Backend conversion failed, falling back:", e);
-                }
-                break;
-
-            default:
-                setResult(0);
+        try {
+            const response = await performConversion(unit, input);
+            if (response && typeof response?.result === 'number') {
+                setResult(Number(response.result.toPrecision(2)));
+            }
+        } catch (err) {
+            console.error('Conversion failed:', err);
         }
     };
 
