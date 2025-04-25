@@ -1,23 +1,7 @@
-import dateTimeISO = CypressCommandLine.dateTimeISO;
-
-interface HealthResponse {
-    message: string;
-    timestamp: dateTimeISO;
-}
-
 interface SendUnitConversionResponse {
     message: string;
     result: number;
 }
-
-export const fetchHealthData = async () : Promise<HealthResponse | undefined> => {
-    try {
-        const res = await fetch('http://localhost:5046/api/conversion/health/');
-        return await res.json();
-    } catch (error) {
-        console.error('Error fetching data:', error);
-    }
-};
 
 export const ConvertGramsToKilograms = async (grams: number) : Promise<SendUnitConversionResponse | undefined> => {
     try {
@@ -25,7 +9,6 @@ export const ConvertGramsToKilograms = async (grams: number) : Promise<SendUnitC
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'credentials': 'include'
             },
             body: JSON.stringify(grams),
         });
@@ -42,7 +25,6 @@ export const ConvertKilometersToMiles = async (kilometers: number) : Promise<Sen
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'credentials': 'include'
             },
             body: JSON.stringify(kilometers),
         });
@@ -59,7 +41,6 @@ export const ConvertCelsiusToFahrenheit = async (celsius: number) : Promise<Send
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'credentials': 'include'
             },
             body: JSON.stringify(celsius),
         });
@@ -76,7 +57,6 @@ export const ConvertLitersToGallons = async (liters: number) : Promise<SendUnitC
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'credentials': 'include'
             },
             body: JSON.stringify(liters),
         });
