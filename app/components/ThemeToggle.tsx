@@ -1,32 +1,26 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import {ReactNode, useEffect, useState} from "react";
+import {ReactNode} from "react";
 import {Moon, SunMoon} from 'lucide-react';
+import IsMounted from "@/app/components/IsMounted";
 
 function ThemeToggle(): Readonly<ReactNode> {
-const {theme, setTheme} = useTheme();
-    const [mounted, setMounted] = useState(false);
+    const {theme, setTheme} = useTheme();
 
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    if (!mounted) return null;
-
-    return(
-        <>
+    return (
+        <IsMounted>
             <button
-                className={"p-2 rounded-full cursor-pointer border border-gray-200"}
+                className={"p-2 rounded-full cursor-pointer border border-border"}
                 onClick={() => setTheme(theme === "light" ? "dark" : "light")}
             >
                 {
                     theme === "light" ?
-                    <Moon size={17}/> :
-                    <SunMoon size={17}/>
+                        <Moon size={17} className="text-text-on-dark"/> :
+                        <SunMoon size={17} className="text-text-on-dark"/>
                 }
             </button>
-        </>
+        </IsMounted>
     )
 }
 
