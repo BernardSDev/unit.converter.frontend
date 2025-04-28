@@ -29,8 +29,9 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
 
     return ReactDOM.createPortal(
         <div className="fixed inset-0 bg-secondary/80 flex items-center justify-center z-50">
-            <div className="fixed h-[80svh] w-[95vw] grid place-content-center rounded-2xl overflow-hidden container bg-background shadow-2xl">
+            <div data-test="conversion-modal" className="fixed h-[80svh] w-[95vw] grid place-content-center rounded-2xl overflow-hidden container bg-background shadow-2xl">
                 <button
+                    data-test="close-button"
                     onClick={onClose}
                     className="absolute text-foreground top-3 right-5 text-3xl font-bold cursor-pointer"
                 >

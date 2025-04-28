@@ -27,7 +27,7 @@ function ModalContent() : Readonly<ReactNode> {
         try {
             const response = await performConversion(unit, input);
             if (response && typeof response?.result === 'number') {
-                setResult(Number(response.result.toPrecision(2)));
+                setResult(Number(response.result.toFixed(3)));
             }
         } catch (err) {
             console.error('Conversion failed:', err);
@@ -40,6 +40,7 @@ function ModalContent() : Readonly<ReactNode> {
                 <label className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-10">
                     Select a unit:
                     <select
+                        data-test={"conversion-select"}
                         value={selectedConversion}
                         onChange={handleConversionChange}
                         className={"bg-secondary border-none text-lg text-foreground p-3 rounded-md"}
@@ -54,7 +55,8 @@ function ModalContent() : Readonly<ReactNode> {
             <div className="bg-background flex items-center justify-between py-8 mt-2 gap-2 sm:gap-5 px-2">
                 <div className="w-full bg-transparent rounded-sm border border-neutral-200 focus:outline-none text-text-secondary">
                     <input
-                        type="text"
+                        data-test={"conversion-input"}
+                        type="string"
                         onChange={handleUnitInputChange}
                         value={value}
                         className="bg-transparent w-full focus:outline-none pl-4 py-2"
@@ -64,7 +66,8 @@ function ModalContent() : Readonly<ReactNode> {
                 <div>=</div>
                 <div className="w-full bg-transparent rounded-sm border border-neutral-200 focus:outline-none text-foreground">
                     <input
-                        type="text"
+                        data-test={"conversion-result"}
+                        type="string"
                         value={result}
                         className="bg-transparent w-full focus:outline-none pl-4 py-2"
                         disabled={true}
